@@ -11,7 +11,6 @@ cog = 27;
 ratio = (chainring / cog).toFixed(2);
 console.log(ratio);
 
-const w = new Wheel(26, 1.5)
+const w = new Wheel({rim: 26, tire: 1.5})
 console.log(w.Circumference());
-console.log(new Gear(52, 11, w).Ratio());
-console.log(new Gear(30, 27).Ratio());
+console.log(new Gear({chainring: 52, cog: 11, wheel: w}).Ratio());

@@ -1,6 +1,16 @@
+interface WheelConstructorParams {
+    rim: number,
+    tire: number
+}
+
 class Wheel {
     private _rim: number;
     private _tire: number;
+    
+    constructor({rim, tire}: WheelConstructorParams) {
+        this._rim = rim;
+        this._tire = tire;
+    };
 
     get Rim() {
         return this._rim;
@@ -23,11 +33,6 @@ class Wheel {
     public Circumference(): number {
         return this.Diameter() * Math.PI;
     }
-
-    constructor(rim: number, tire: number) {
-        this._rim = rim;
-        this._tire = tire;
-    };
 }
 
 export default Wheel;

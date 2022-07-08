@@ -1,9 +1,21 @@
 import Wheel from "./Wheel";
 
+interface GearConstructorParams {
+    chainring: number,
+    cog: number,
+    wheel: Wheel
+}
+
 class Gear {
     private _chainring: number;
     private _cog: number;
-    private _gearWheel: Wheel | null;
+    private _gearWheel: Wheel;
+
+    constructor({chainring, cog, wheel}: GearConstructorParams) {
+        this._chainring = chainring;
+        this._cog = cog;
+        this._gearWheel = wheel;
+    }
 
     get Cog() {
         return this._cog;
@@ -26,18 +38,16 @@ class Gear {
         this._gearWheel = value;
     }
 
-    constructor(chainring: number, cog: number, wheel: Wheel | null = null) {
-        this._chainring = chainring;
-        this._cog = cog;
-        this._gearWheel = wheel;
-    }
-
     Ratio(): number {
         return this.ChainRing / this.Cog;
     }
 
+    Diameter(): number {
+        return this.GearWheel.Diameter();
+    }
+
     GearInches(): number {
-        return this.GearWheel ? this.Ratio() * this.GearWheel.Diameter() : this.Ratio();
+        return this.Ratio() * this.Diameter();
     }
 }
 
