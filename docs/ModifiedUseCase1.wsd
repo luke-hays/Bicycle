@@ -1,0 +1,12 @@
+'This represents a better implementation of the initial use case
+'The failure here is that the customer class knows too much about how the classes collaborate
+@startuml Modified Draft
+title Draft 1
+Moe_Customer -> Class_Trip --++ #red: suitable_trips\n(on_date,\nof_difficulty)
+Class_Trip -> Moe_Customer --
+note over Moe_Customer
+For each trip found
+end note
+Moe_Customer -> Bicycle --++ #red: suitable_bike\n(trip_date,\nroute_type)
+Bicycle -> Moe_Customer -- 
+@enduml

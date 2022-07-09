@@ -1,0 +1,24 @@
+'This represents another implementation of the initial use case
+'This leads to the discovery of a new object that can hide implementation details from customer
+@startuml Final Draft
+title Final
+Customer -> TripFinder : suitable_trips\n(on_date,\nof_difficulty,\nneed_bike)
+activate TripFinder #red
+
+TripFinder -> Trip : suitable_trips\n(on_date,\nof_difficulty)
+activate Trip #red
+Trip --> TripFinder 
+deactivate Trip
+
+Note over TripFinder
+for each trip found
+endNote
+
+TripFinder -> Bicycle : suitable_bicycle\n(trip_date,\nroute_type)
+activate Bicycle #red
+Bicycle --> TripFinder
+deactivate Bicycle
+
+TripFinder -> Customer
+deactivate TripFinder
+@enduml

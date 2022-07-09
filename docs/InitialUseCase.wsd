@@ -1,0 +1,7 @@
+'A simple use case for expirementing with sequence diagrams for interfacing
+'This draft fails on the fact that class trip is making decisions on the bike
+@startuml Initial Draft
+title Simple Use Case
+Moe_Customer -> Class_Trip --++ #red: suitable_trips (on_date, \nof_difficulty, need_bike)
+Class_Trip -> Moe_Customer --
+@enduml

@@ -1,0 +1,17 @@
+'Revised design of interface
+'Trip now makes the request to mechanic to prepare a bicycle
+'Now mechanic is exposing one public method to Trip
+'We can still introduce more flexibility into this design
+@startuml Trip - Mechanic interface
+Trip -> Trip : bicycles
+Note over Trip
+for each bicycle
+endNote
+Trip -> Mechanic --++ #red : prepare_bicycle(bike)
+Mechanic -> Mechanic : clean_bicycle(bike)
+Note over Mechanic
+etc...
+endNote
+Mechanic -> Trip --
+
+@enduml

@@ -1,0 +1,17 @@
+'Initial design of an Trip to Mechanic interface
+'This design fails since Trip is directing Mechanic on how to prepare a bicycle
+'This is tightly coupling Trip to Mechanic
+@startuml Trip - Mechanic interface
+Trip -> Trip : bicycles
+Note over Trip
+for each bicycle
+endNote
+Trip -> Mechanic --++ #red : clean_bicycle(bike)
+Mechanic -> Trip --
+Trip -> Mechanic --++ #red : pump_tires(bike)
+Mechanic -> Trip --
+Trip -> Mechanic --++ #red : tube_chain(bike)
+Mechanic -> Trip --
+Trip -> Mechanic --++ #red : check_brakes(bike)
+Mechanic -> Trip --
+@enduml

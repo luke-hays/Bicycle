@@ -1,0 +1,12 @@
+'Revised design of interface
+
+@startuml Trip - Mechanic interface
+Trip -> Mechanic --++ #red : prepare_trip(self)
+Mechanic -> Trip --++ #red : bicycles
+Trip --> Mechanic --++ #red
+Note over Mechanic
+for each bicycle
+endNote
+Mechanic -> Mechanic : prepare_bicycle(bike)
+Mechanic --> Trip --
+@enduml
