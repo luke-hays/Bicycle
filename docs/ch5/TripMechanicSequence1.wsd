@@ -1,0 +1,13 @@
+ @startuml TripMechanicSequence
+someObject -> Trip : prepare(mechanic)
+activate Trip #red
+
+Trip -> Mechanic : prepare_bicycles(bicycles)
+activate Mechanic #red
+Mechanic --> Trip
+deactivate Mechanic
+
+Trip --> someObject 
+deactivate Trip
+
+ @enduml
