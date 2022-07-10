@@ -1,0 +1,42 @@
+'www.plantuml.com/plantuml/png/hPAnJiGm38PtFqKabZBS2p2Was1bOwjEKPhuk43QL8vRT6zFL9d6KXcPMZlVd-yVSYxiY9Sn0PGyeit39tesfsV356VpP6R2sH5sygNo2CvpN1sZqOa7mj1Ejl2sWfJpRFezVW6NsFHlw6zkYlu26rfzesoQqmxHttt2qicFSk-uMFRn9DKXu845m5JGzE_r_2Ld2d5odAbry6rPQmpBtLvp3frV2kSHIVarAXNqveyMEl5Rv9NYYieVjhcgFronozojU8i-OTCA8KOP3hATW-FDrvYI_Qu8MNRJrpyeS0gYgP1w4eezP3K6vth3CgOV
+'This diagram expresses a depedent laden code that neglects messaging
+@startuml
+
+some_object -> trip : prepare(preparers)
+activate some_object #red
+activate trip #red
+
+loop [preparers]
+alt [Mechanic]
+trip -> mechanic : prepare_bicycles(bicycles)
+activate mechanic #red
+
+mechanic --> trip
+deactivate mechanic
+
+else [TripCoordinator]
+trip -> coordinator : buy_food(customers)
+activate coordinator #red
+
+coordinator --> trip
+deactivate coordinator
+
+else [Driver]
+trip -> driver : gas_up(vehicle)
+activate driver #red
+
+driver --> trip
+deactivate driver
+
+trip -> driver : fill_water_tank(vehicle)
+activate driver #red
+
+driver --> trip
+deactivate driver
+
+end
+trip --> some_object
+deactivate trip
+deactivate some_object
+
+@enduml

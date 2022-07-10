@@ -1,0 +1,16 @@
+'using duck typing to arrive at a solution that allows easy extension
+
+ @startuml TripMechanicSequence
+someObject -> Trip : prepare(mechanic)
+activate Trip #red
+loop [preparers]
+
+Trip -> Preparer : prepare_trip(self)
+activate Preparer #red
+Preparer --> Trip
+deactivate Preparer
+end
+Trip --> someObject 
+deactivate Trip
+
+ @enduml

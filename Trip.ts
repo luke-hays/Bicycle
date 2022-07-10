@@ -4,9 +4,9 @@ class Trip {
     private _vehicle: Vehicle;
 
     constructor() {
-        this._bicycles = [""];
-        this._customers = [""];
-        this._vehicle = ""
+        this._bicycles = [];
+        this._customers = [];
+        this._vehicle = new Vehicle();
     }
 
     get Bicycles() {
@@ -30,55 +30,25 @@ class Trip {
         this._vehicle = value;
     }
 
-    public Prepare(preparers: Array<Mechanic | Driver | TripCoordinator>) {
-        preparers.forEach((preparer) => {
-            if (preparer instanceof Mechanic) {
-                preparer.PrepareBicycles(this.Bicycles);
-            } else if (preparer instanceof Driver) {
-                preparer.GasUp(this.Vehicle);
-                preparer.FillWaterTank(this.Vehicle)
-            } else if (preparer instanceof TripCoordinator) {
-                preparer.BuyFood(this.Customers);
-            }
-        })
-    }
-}
-
-class Mechanic {
-    constructor() {}
-
-    public PrepareBicycle(bicycle: Bicycle): void {
-        console.log(`Preparing bicycle ${bicycle}`);
-    }
-
-    public PrepareBicycles(bicycles: Array<Bicycle>): void {
-        bicycles.forEach(bicycle => {
-            this.PrepareBicycle(bicycle);
+    public Prepare(preparers: Array<Preparer>) {
+        //This code is more flexible and utilizes polymorphism to eliminate the conditional logic
+        //Instead of needing knowledge of the classes, Trip just needs to know the interface implemented by each class
+        //That contains behavior "prepare_trip"
+        preparers.forEach(preparer => {
+            preparer.PrepareTrip(this);
         });
+
+        // This code is inflexible and relies too much on Trip's awareness of its dependences
+        // preparers.forEach((preparer) => {
+        //     if (preparer instanceof Mechanic) {
+        //         preparer.PrepareBicycles(this.Bicycles);
+        //     } else if (preparer instanceof Driver) {
+        //         preparer.GasUp(this.Vehicle);
+        //         preparer.FillWaterTank(this.Vehicle)
+        //     } else if (preparer instanceof TripCoordinator) {
+        //         preparer.BuyFood(this.Customers);
+        //     }
+        // })
     }
 }
 
-class TripCoordinator {
-    constructor() {}
-
-    public BuyFood(customers: Array<Customer>): void {}
-}
-
-class Driver {
-    constructor() {}
-
-    public GasUp(vehicle: Vehicle): void {}
-    public FillWaterTank(vehicle: Vehicle): void {}
-}
-
-class Customer {
-    constructor() {}
-}
-
-class Bicycle {
-    constructor() {}
-}
-
-class Vehicle {
-    constructor() {}
-}
