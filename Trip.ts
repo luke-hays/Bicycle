@@ -1,3 +1,6 @@
+import Bicycle from "./Bicycle";
+import Preparer from "./ts/interfaces/Preparer.interface";
+
 class Trip {
     private _bicycles: Array<Bicycle>;
     private _customers: Array<Customer>;
@@ -52,3 +55,4 @@ class Trip {
     }
 }
 
+export default Trip;

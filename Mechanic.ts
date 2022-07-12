@@ -1,3 +1,7 @@
+import Trip from "./Trip";
+import Bicycle from "./Bicycle";
+import Preparer from "./ts/interfaces/Preparer.interface";
+
 class Mechanic implements Preparer {
   constructor() {}
 

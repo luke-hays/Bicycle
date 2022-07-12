@@ -1,3 +1,6 @@
+import Trip from './Trip'
+import Preparer from "./ts/interfaces/Preparer.interface";
+
 class TripCoordinator implements Preparer {
   constructor() {}
 
