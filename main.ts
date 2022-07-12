@@ -16,5 +16,8 @@ const w = new Wheel({rim: 26, tire: 1.5})
 console.log(w.Circumference());
 console.log(new Gear({chainring: 52, cog: 11, wheel: w}).Ratio());
 
-const bike = new Bicycle({size: 'M', tapeColor: 'red'});
+let bike = new Bicycle({size: 'M', tapeColor: 'red', style: 'road'});
+console.log(bike.Spares());
+
+bike = new Bicycle({size: 'S', frontShock: 'Manitou', rearShock: 'Fox', style: 'mountain'});
 console.log(bike.Spares());
