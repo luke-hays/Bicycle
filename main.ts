@@ -1,6 +1,7 @@
 import Gear from './Gear';
 import Wheel from './Wheel';
 import Bicycle from './Bicycle';
+import MountainBike from './MountainBike';
 
 let chainring = 52;
 let cog = 11;
@@ -17,7 +18,7 @@ console.log(w.Circumference());
 console.log(new Gear({chainring: 52, cog: 11, wheel: w}).Ratio());
 
 let bike = new Bicycle({size: 'M', tapeColor: 'red', style: 'road'});
-console.log(bike.Spares());
+console.log(bike.Spares(''));
 
-bike = new Bicycle({size: 'S', frontShock: 'Manitou', rearShock: 'Fox', style: 'mountain'});
+bike = new MountainBike({size: 'S', frontShock: 'Manitou', rearShock: 'Fox', style: 'mountain'});
 console.log(bike.Spares());

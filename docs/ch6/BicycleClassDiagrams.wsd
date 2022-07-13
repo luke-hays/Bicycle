@@ -1,0 +1,4 @@
+'Hollow triangle indicates inheritance relationship. Bicycle is a superclass of MountainBike
+@startuml
+Bicycle <|-- MountainBike
+@enduml

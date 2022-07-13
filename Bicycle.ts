@@ -2,16 +2,12 @@ interface BicycleConstructorParams {
   size: string;
   tapeColor?: string;
   style: string;
-  frontShock?: string;
-  rearShock?: string;
 }
 
 class Bicycle {
   private _size: string;
   private _tapeColor: string;
   private _style: string;
-  private _frontShock: string;
-  private _rearShock: string;
 
   public get Size() : string {
     return this._size
@@ -34,29 +30,13 @@ class Bicycle {
     this._style = v;
   }
 
-  public get FrontShock() : string {
-    return this._frontShock;
-  }
-  public set FrontShock(v: string) {
-    this._frontShock = v;
-  }
-
-  public get RearShock() : string {
-    return this._rearShock;
-  }
-  public set RearShock(v: string) {
-    this._rearShock = v;
-  }
-
-  constructor({size, tapeColor =' ', style, frontShock = '', rearShock = ''}: BicycleConstructorParams) {
+  constructor({size, tapeColor =' ', style}: BicycleConstructorParams) {
     this._size = size;
     this._tapeColor = tapeColor;
     this._style = style;
-    this._frontShock = frontShock;
-    this._rearShock = rearShock;
   }
 
-  public Spares() {
+  public Spares(frontShock: string) {
     if (this.Style === 'road') {
       return {
         chain: '11-speed',
@@ -67,10 +47,9 @@ class Bicycle {
       return {
         chain: '11-speed',
         tireSize: '2.1',
-        frontShock: this.FrontShock
+        frontShock: frontShock
       }
     }
-
   }
 }
 
