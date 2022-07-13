@@ -1,0 +1,6 @@
+'Bicycle is now an abstract class with common behavior
+'Subclasses are specializations
+@startuml
+Bicycle <|-- MountainBike
+Bicycle <|-- RoadBike
+@enduml

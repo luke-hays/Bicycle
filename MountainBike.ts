@@ -1,12 +1,7 @@
 import Bicycle from "./Bicycle";
 
-interface BicycleConstructorParams{
+interface MountainBikeConstructorParams {
   size: string;
-  tapeColor?: string;
-  style: string;
-}
-
-interface MountainBikeConstructorParams extends BicycleConstructorParams {
   frontShock: string;
   rearShock: string;
 }
@@ -29,13 +24,11 @@ class MountainBike extends Bicycle {
     this._rearShock = v;
   }
 
-  constructor({size, tapeColor =' ', style, frontShock, rearShock}: MountainBikeConstructorParams) {
-    super({size: size, tapeColor: tapeColor, style: style});
+  constructor({size, frontShock, rearShock}: MountainBikeConstructorParams) {
+    super({size});
     this._frontShock = frontShock;
     this._rearShock = rearShock;
   }
-
-
 }
 
 export default MountainBike;
