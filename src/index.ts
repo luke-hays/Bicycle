@@ -1,8 +1,8 @@
-import Gear from './Gear';
-import Wheel from './Wheel';
-import MountainBike from './MountainBike';
-import RoadBike from './RoadBike';
-import RecumbentBike from './RecumbentBike';
+import MountainBike from "./Entities/Bicycle/MountainBike";
+import RecumbentBike from "./Entities/Bicycle/RecumbentBike";
+import RoadBike from "./Entities/Bicycle/RoadBike";
+import Gear from "./Entities/Gear";
+import Wheel from "./Entities/Wheel";
 
 let chainring = 52;
 let cog = 11;

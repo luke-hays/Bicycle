@@ -1,4 +1,4 @@
-import Trip from '../../Trip'
+import Trip from "../../Entities/Trip";
 
 interface Preparer {
   PrepareTrip(trip: Trip): void
