@@ -29,9 +29,8 @@ class RecumbentBike extends Bicycle {
     return '28';
   }
 
-  public Spares() {
+  protected override LocalSpares(): {} {
     return {
-      ...super.Spares(),
       flag: this.Flag
     }
   }

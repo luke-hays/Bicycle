@@ -25,9 +25,8 @@ class RoadBike extends Bicycle {
     return "23";
   }
 
-  public Spares() {
+  protected override LocalSpares(): {} {
     return {
-      ...super.Spares(),
       tapeColor: this.TapeColor
     }
   }

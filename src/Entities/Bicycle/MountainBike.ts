@@ -36,9 +36,8 @@ class MountainBike extends Bicycle {
     return "2.1";
   }
 
-  public Spares() {
+  protected override LocalSpares(): {} {
     return {
-      ...super.Spares(),
       frontShock: this.FrontShock
     }
   }

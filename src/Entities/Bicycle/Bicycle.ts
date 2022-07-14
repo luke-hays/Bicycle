@@ -40,10 +40,15 @@ abstract class Bicycle {
     return "";
   }
 
-  protected Spares() {
+  protected LocalSpares(): {} {
+    return {}
+  }
+
+  public Spares() {
     return {
       chain: this.Chain,
       tireSize: this.TireSize,
+      ...this.LocalSpares()
     }
   }
 }
