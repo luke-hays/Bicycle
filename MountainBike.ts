@@ -1,7 +1,7 @@
 import Bicycle from "./Bicycle";
+import BicycleParams from "./ts/interfaces/BicycleParams.interface";
 
-interface MountainBikeConstructorParams {
-  size: string;
+interface params extends BicycleParams {
   frontShock: string;
   rearShock: string;
 }
@@ -13,6 +13,7 @@ class MountainBike extends Bicycle {
   public get FrontShock() : string {
     return this._frontShock;
   }
+
   public set FrontShock(v: string) {
     this._frontShock = v;
   }
@@ -20,14 +21,26 @@ class MountainBike extends Bicycle {
   public get RearShock() : string {
     return this._rearShock;
   }
+  
   public set RearShock(v: string) {
     this._rearShock = v;
   }
 
-  constructor({size, frontShock, rearShock}: MountainBikeConstructorParams) {
-    super({size});
+  constructor({size, chain, tireSize, frontShock, rearShock}: params) {
+    super({size, chain, tireSize});
     this._frontShock = frontShock;
     this._rearShock = rearShock;
+  }
+
+  protected override DefaultTireSize(): string {
+    return "2.1";
+  }
+
+  public Spares() {
+    return {
+      ...super.Spares(),
+      frontShock: this.FrontShock
+    }
   }
 }
 

@@ -1,31 +1,35 @@
 import Bicycle from "./Bicycle";
+import BicylceParams from "./ts/interfaces/BicycleParams.interface"
 
-interface RoadBikeConstructorParams {
-  size: string;
-  tapeColor?: string;
+interface params extends BicylceParams {
+  tapeColor: string;
 }
 
-class RoadBike extends Bicycle{
+class RoadBike extends Bicycle {
   private _tapeColor: string;
 
-  public get TapeColor() : string {
+  public get TapeColor(): string {
     return this._tapeColor;
   }
+  
   public set TapeColor(v: string) {
     this._tapeColor = v;
   }
 
-  constructor({size, tapeColor = ' '}: RoadBikeConstructorParams) {
-    super({size});
+  constructor({size, chain, tireSize, tapeColor}: params) {
+    super({size, chain, tireSize: tireSize});
     this._tapeColor = tapeColor;
+  }
+
+  protected override DefaultTireSize(): string {
+    return "23";
   }
 
   public Spares() {
     return {
-      chain: '11-speed',
-      tireSize: '23',
+      ...super.Spares(),
       tapeColor: this.TapeColor
-    };
+    }
   }
 }
 
