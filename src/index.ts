@@ -3,7 +3,26 @@ import MountainBike from "./Entities/Bicycle/MountainBike";
 import RecumbentBike from "./Entities/Bicycle/RecumbentBike";
 import RoadBike from "./Entities/Bicycle/RoadBike";
 import Gear from "./Entities/Gear";
+import Schedule from "./Entities/Schedule";
 import Wheel from "./Entities/Wheel";
+import Schedulable from "./ts/mixins/Schedulable";
+
+// This can live anywhere in your codebase:
+
+applyMixins(Bicycle, [Schedulable]);
+function applyMixins(derivedCtor: any, constructors: any[]) {
+  constructors.forEach((baseCtor) => {
+    Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+      Object.defineProperty(
+        derivedCtor.prototype,
+        name,
+        Object.getOwnPropertyDescriptor(baseCtor.prototype, name) ||
+          Object.create(null)
+      );
+    });
+  });
+}
+
 
 let chainring = 52;
 let cog = 11;
@@ -34,5 +53,5 @@ console.log(xbike.Spares());
 
 let ybike = new RecumbentBike({flag: 'tall and orange'});
 console.log(ybike.Spares());
-
-console.log(bike.Schedulable(new Date(), new Date()))
+// bike.Schedule = new Schedule();
+console.log(bike.Schedulable(new Date(), new Date()));
