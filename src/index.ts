@@ -1,3 +1,4 @@
+import Bicycle from "./Entities/Bicycle/Bicycle";
 import MountainBike from "./Entities/Bicycle/MountainBike";
 import RecumbentBike from "./Entities/Bicycle/RecumbentBike";
 import RoadBike from "./Entities/Bicycle/RoadBike";
@@ -33,3 +34,5 @@ console.log(xbike.Spares());
 
 let ybike = new RecumbentBike({flag: 'tall and orange'});
 console.log(ybike.Spares());
+
+console.log(bike.Schedulable(new Date(), new Date()))
