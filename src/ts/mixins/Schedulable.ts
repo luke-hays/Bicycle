@@ -1,10 +1,17 @@
 import ISchedule from "../../Entities/Schedule";
 
 class Schedulable {
-  private schedule: ISchedule = new ISchedule();
+  private schedule: ISchedule;
   
   private Schedule(): ISchedule {
-    return this.schedule ?? new ISchedule();
+    if (!this.schedule) {
+      this.schedule = new ISchedule();
+    }
+    return this.schedule;
+  }
+
+  constructor () {
+    this.schedule = new ISchedule();
   }
 
   // Return true if bicycle is availabe during this interval

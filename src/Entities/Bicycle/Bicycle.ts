@@ -1,6 +1,5 @@
 import BicycleParams from "../../ts/interfaces/BicycleParams.interface";
 import Schedulable from "../../ts/mixins/Schedulable";
-import ISchedule from "../Schedule";
 
 interface Bicycle extends Schedulable {}
 
@@ -34,7 +33,7 @@ abstract class Bicycle implements Bicycle{
   }
 
   //Injecting Schedule dependency and providing default
-  constructor({size = '', chain, tireSize, schedule = new ISchedule()}: BicycleParams) {
+  constructor({size = '', chain, tireSize}: BicycleParams) {
     this._size = size;
     this._chain = chain ?? this.DefaultChain();
     this._tireSize = tireSize ?? this.DefaultTireSize();
