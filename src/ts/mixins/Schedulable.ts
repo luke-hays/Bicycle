@@ -1,6 +1,6 @@
 import ISchedule from "../../Entities/Schedule";
 
-class Schedulable {
+abstract class Schedulable {
   private _schedule: ISchedule = new ISchedule();
   
   public get Schedule(): ISchedule {
@@ -17,14 +17,12 @@ class Schedulable {
 
   // Return schedule's answer
   public Scheduled(starting: Date, ending: Date): boolean {
-    const x = this.LeadDays()
-    console.log(x)
-    return this.Schedule.Scheduled(this, starting, ending);
+    const d = new Date()
+    d.setDate(starting.getDate() - (this.LeadDays() as number));
+    return this.Schedule.Scheduled(this, d, ending);
   }
 
-  protected LeadDays(): number {
-    return 0;
-  }
+  protected abstract LeadDays(): {}
 }
 
 export default Schedulable

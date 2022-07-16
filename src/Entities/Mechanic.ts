@@ -21,6 +21,10 @@ class Mechanic implements Mechanic, Preparer {
   private PrepareBicycle(bicycle: Bicycle): void {
       console.log(`Preparing bicycle ${bicycle}`);
   }
+
+  protected LeadDays(): number {
+      return 4;
+  }
 }
 
 export default Mechanic;
