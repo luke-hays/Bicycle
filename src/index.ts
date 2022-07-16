@@ -7,8 +7,12 @@ import Wheel from "./Entities/Wheel";
 import Schedulable from "./ts/mixins/Schedulable";
 
 import { applyMixins } from "./ts/mixins/ApplyMixins";
+import Vehicle from "./Entities/Vehicle";
+import Mechanic from "./Entities/Mechanic";
 
 applyMixins(Bicycle, [Schedulable]);
+applyMixins(Vehicle, [Schedulable]);
+applyMixins(Mechanic, [Schedulable]);
 
 let chainring = 52;
 let cog = 11;

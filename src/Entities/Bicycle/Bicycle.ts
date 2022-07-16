@@ -40,7 +40,7 @@ abstract class Bicycle implements Bicycle{
   }
 
   // Return the number of lead days before a bicycle can be scheduled
-  public LeadDays(): number {
+  protected LeadDays(): number {
     return 1;
   }
 

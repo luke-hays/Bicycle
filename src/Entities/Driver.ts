@@ -7,7 +7,7 @@ class Driver implements Preparer {
 
   PrepareTrip(trip: Trip): void {
       this.GasUp(trip.Vehicle);
-      this.FillWaterTank(Vehicle);
+      this.FillWaterTank(trip.Vehicle);
   }
 
   private GasUp(vehicle: Vehicle): void {

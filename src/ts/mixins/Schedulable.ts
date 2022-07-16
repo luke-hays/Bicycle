@@ -1,17 +1,13 @@
 import ISchedule from "../../Entities/Schedule";
 
 class Schedulable {
-  private schedule: ISchedule;
+  private _schedule: ISchedule = new ISchedule();
   
-  private Schedule(): ISchedule {
-    if (!this.schedule) {
-      this.schedule = new ISchedule();
+  public get Schedule(): ISchedule {
+    if (!this._schedule) {
+      this._schedule = new ISchedule();
     }
-    return this.schedule;
-  }
-
-  constructor () {
-    this.schedule = new ISchedule();
+    return this._schedule;
   }
 
   // Return true if bicycle is availabe during this interval
@@ -21,10 +17,12 @@ class Schedulable {
 
   // Return schedule's answer
   public Scheduled(starting: Date, ending: Date): boolean {
-    return this.Schedule().Scheduled(this, starting, ending);
+    const x = this.LeadDays()
+    console.log(x)
+    return this.Schedule.Scheduled(this, starting, ending);
   }
 
-  public LeadDays(): number {
+  protected LeadDays(): number {
     return 0;
   }
 }
