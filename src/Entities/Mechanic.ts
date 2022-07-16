@@ -8,7 +8,7 @@ interface Mechanic extends Schedulable {}
 class Mechanic implements Mechanic, Preparer {
   constructor() {}
 
-  PrepareTrip(trip: Trip): void {
+  public PrepareTrip(trip: Trip): void {
       this.PrepareBicycles(trip.Bicycles);
   }
 

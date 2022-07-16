@@ -3,7 +3,7 @@ import Schedulable from "../../ts/mixins/Schedulable";
 
 interface Bicycle extends Schedulable {}
 
-abstract class Bicycle implements Bicycle{
+abstract class Bicycle implements Bicycle {
   private _size: string;
   private _chain: string;
   private _tireSize: string;

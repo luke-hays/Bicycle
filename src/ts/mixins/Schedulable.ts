@@ -16,7 +16,7 @@ abstract class Schedulable {
   }
 
   // Return schedule's answer
-  public Scheduled(starting: Date, ending: Date): boolean {
+  private Scheduled(starting: Date, ending: Date): boolean {
     const d = new Date()
     d.setDate(starting.getDate() - (this.LeadDays() as number));
     return this.Schedule.Scheduled(this, d, ending);

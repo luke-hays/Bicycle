@@ -1,18 +1,12 @@
-import Bicycle from "./Entities/Bicycle/Bicycle";
 import MountainBike from "./Entities/Bicycle/MountainBike";
 import RecumbentBike from "./Entities/Bicycle/RecumbentBike";
 import RoadBike from "./Entities/Bicycle/RoadBike";
 import Gear from "./Entities/Gear";
 import Wheel from "./Entities/Wheel";
-import Schedulable from "./ts/mixins/Schedulable";
 
-import { applyMixins } from "./ts/mixins/ApplyMixins";
-import Vehicle from "./Entities/Vehicle";
-import Mechanic from "./Entities/Mechanic";
+import { mixer } from "./ts/mixins/ApplyMixins";
 
-applyMixins(Bicycle, [Schedulable]);
-applyMixins(Vehicle, [Schedulable]);
-applyMixins(Mechanic, [Schedulable]);
+mixer();
 
 let chainring = 52;
 let cog = 11;
