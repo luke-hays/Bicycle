@@ -1,12 +1,13 @@
 import BicycleParams from "../../ts/interfaces/BicycleParams.interface";
 import Schedulable from "../../ts/mixins/Schedulable";
+import Part from "../../ts/types/Part.type";
 import Parts from "../Parts/Parts";
 
 interface Bicycle extends Schedulable {}
 
 class Bicycle implements Bicycle {
   private _size: string;
-  private _parts: Parts;
+  private _parts: Parts<Part>;
 
   public get Size() : string {
     return this._size
@@ -16,11 +17,11 @@ class Bicycle implements Bicycle {
     this._size = v;
   }
 
-  public get Parts() : Parts {
+  public get Parts() : Parts<Part> {
     return this._parts
   }
 
-  public set Parts(v : Parts) {
+  public set Parts(v : Parts<Part>) {
     this._parts = v;
   }
 

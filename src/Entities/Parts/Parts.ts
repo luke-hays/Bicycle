@@ -1,22 +1,7 @@
-import PartsParams from "../../ts/interfaces/PartsParams.interface";
-import Part from "./Part";
+import Part from "../../ts/types/Part.type";
 
-interface params {
-  parts: Array<Part>
-}
-
-class Parts extends Array<Part> {
-  // private _parts: Array<Part>;
-
-  // public get Parts() : Array<Part> {
-  //   return this._parts;
-  // }
-  
-  // public set Parts(v : Array<Part>) {
-  //   this._parts = v;
-  // }
-
-  constructor({parts = new Array<Part>}: params) {
+class Parts<Type extends Part> extends Array<Type> {
+  constructor(parts = new Array<Type>) {
     super();
     parts.forEach(part => {
       this.push(part);
@@ -25,7 +10,7 @@ class Parts extends Array<Part> {
 
   public Spares() {
     return this.filter((part) => {
-      if (part.NeedsSpare) return part;
+      if (part.needsSpare) return part;
     })
   }
 }
