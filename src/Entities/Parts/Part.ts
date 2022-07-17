@@ -9,7 +9,6 @@ class Part {
   private _description: string;
   private _needsSpare: boolean;
 
-
   public get Name() : string {
     return this._name;
   }

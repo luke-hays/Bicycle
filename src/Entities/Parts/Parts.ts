@@ -5,23 +5,26 @@ interface params {
   parts: Array<Part>
 }
 
-class Parts {
-  private _parts: Array<Part>;
+class Parts extends Array<Part> {
+  // private _parts: Array<Part>;
 
-  public get Parts() : Array<Part> {
-    return this._parts;
-  }
+  // public get Parts() : Array<Part> {
+  //   return this._parts;
+  // }
   
-  public set Parts(v : Array<Part>) {
-    this._parts = v;
-  }
+  // public set Parts(v : Array<Part>) {
+  //   this._parts = v;
+  // }
 
   constructor({parts = new Array<Part>}: params) {
-    this._parts = parts
+    super();
+    parts.forEach(part => {
+      this.push(part);
+    });
   }
 
   public Spares() {
-    return this.Parts.filter((part) => {
+    return this.filter((part) => {
       if (part.NeedsSpare) return part;
     })
   }

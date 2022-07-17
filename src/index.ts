@@ -57,3 +57,4 @@ let frontShock = new Part({name: 'frontShock', description: "Manitou"});
 let roadBikeParts = new Parts({parts: [chain, roadTire, tape, rearShock]});
 
 console.log(roadBikeParts.Spares());
+console.log(roadBikeParts.length);
