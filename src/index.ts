@@ -3,7 +3,8 @@
 // import RoadBike from "./Entities/Bicycle/RoadBike";
 import Bicycle from "./Entities/Bicycle/Bicycle";
 import Gear from "./Entities/Gear";
-import RoadBikeParts from "./Entities/Parts/RoadBikeParts";
+import Part from "./Entities/Parts/Part";
+import Parts from "./Entities/Parts/Parts";
 import Wheel from "./Entities/Wheel";
 
 import { mixer } from "./ts/mixins/ApplyMixins";
@@ -42,6 +43,17 @@ console.log(new Gear({chainring: 52, cog: 11, wheel: w}).Ratio());
 // // bike.Schedule = new Schedule();
 // console.log(bike.Schedulable(new Date(), new Date()));
 
-let bike  = new Bicycle({size: 'L', parts: new RoadBikeParts({tapeColor: 'red'})});
-console.log(bike);
-console.log(bike.Spares());
+// let bike  = new Bicycle({size: 'L', parts: new RoadBikeParts({tapeColor: 'red'})});
+// console.log(bike);
+// console.log(bike.Spares());
+
+let chain = new Part({name: 'chain', description: '11-speed'});
+let roadTire = new Part({name: 'tireSize', description: "23"});
+let tape = new Part({name: 'tape', description: "Red"});
+let mountainTire = new Part({name: 'tireSize', description: "2.1"});
+let rearShock = new Part({name: 'rearShock', description: "Fox", needsSpare: false});
+let frontShock = new Part({name: 'frontShock', description: "Manitou"});
+
+let roadBikeParts = new Parts({parts: [chain, roadTire, tape, rearShock]});
+
+console.log(roadBikeParts.Spares());
