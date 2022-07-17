@@ -34,6 +34,10 @@ class Bicycle implements Bicycle {
   protected LeadDays(): number {
     return 1;
   }
+
+  public Spares(): {} {
+    return this.Parts.Spares();
+  }
 }
 
 export default Bicycle;

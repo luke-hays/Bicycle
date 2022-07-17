@@ -44,4 +44,4 @@ console.log(new Gear({chainring: 52, cog: 11, wheel: w}).Ratio());
 
 let bike  = new Bicycle({size: 'L', parts: new RoadBikeParts({tapeColor: 'red'})});
 console.log(bike);
-console.log(bike.Size);
+console.log(bike.Spares());
