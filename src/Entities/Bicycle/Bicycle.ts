@@ -36,7 +36,7 @@ class Bicycle implements Bicycle {
     return 1;
   }
 
-  public Spares(): {} {
+  public Spares() {
     return this.Parts.Spares();
   }
 }

@@ -1,17 +1,15 @@
 import Part from "../../ts/types/Part.type";
 
 class Parts<Type extends Part> extends Array<Type> {
-  constructor(parts = new Array<Type>) {
+  constructor(...items: Type[]) {
     super();
-    parts.forEach(part => {
-      this.push(part);
-    });
+    this.push(...items);
   }
 
   public Spares() {
-    return this.filter((part) => {
-      if (part.needsSpare) return part;
-    })
+    return this.filter(p => {
+      if (p.needsSpare) return p;
+    });
   }
 }
 

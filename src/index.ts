@@ -4,6 +4,7 @@ import Gear from "./Entities/Gear";
 import Wheel from "./Entities/Wheel";
 
 import { mixer } from "./ts/mixins/ApplyMixins";
+import Bicycle from "./Entities/Bicycle/Bicycle";
 
 mixer();
 
@@ -34,5 +35,17 @@ const mountainConfig = [
   {name: 'rearShock', description: "Fox", needsSpare: false}   
 ]
 
-console.log(PartsFactory.Build(roadConfig));
-console.log(PartsFactory.Build(mountainConfig));
+// console.log(PartsFactory.Build(roadConfig));
+// console.log(PartsFactory.Build(mountainConfig));
+
+const recumbentConfig = [
+  {name: 'chain', description: '9-speed'},
+  {name: 'tireSize', description: '28'},
+  {name: 'flag', description: 'tall and orange'}
+]
+
+const recumbentBike = new Bicycle(
+  {size: 'L', parts: PartsFactory.Build(mountainConfig)}
+) 
+
+console.log(recumbentBike.Spares());

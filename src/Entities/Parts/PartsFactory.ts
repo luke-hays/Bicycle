@@ -3,14 +3,15 @@ import Parts from "./Parts";
 
 class PartsFactory {
   public static Build(config: Part[]) {
-    const parts = config.map(element => {
-      return this.CreatePart(element);
+    const parts = new Parts();
+    config.forEach(configPart => {
+      parts.push(this.CreatePart(configPart));
     });
 
-    return new Parts(parts);
+    return parts;
   }
 
-  private static CreatePart(part: Part) {
+  private static CreatePart(part: Part): Part {
     return {
       name: part.name,
       description: part.description,
