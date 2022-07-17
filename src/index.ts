@@ -1,7 +1,9 @@
-import MountainBike from "./Entities/Bicycle/MountainBike";
-import RecumbentBike from "./Entities/Bicycle/RecumbentBike";
-import RoadBike from "./Entities/Bicycle/RoadBike";
+// import MountainBike from "./Entities/Bicycle/MountainBike";
+// import RecumbentBike from "./Entities/Bicycle/RecumbentBike";
+// import RoadBike from "./Entities/Bicycle/RoadBike";
+import Bicycle from "./Entities/Bicycle/Bicycle";
 import Gear from "./Entities/Gear";
+import RoadBikeParts from "./Entities/Parts/RoadBikeParts";
 import Wheel from "./Entities/Wheel";
 
 import { mixer } from "./ts/mixins/ApplyMixins";
@@ -28,14 +30,18 @@ console.log(new Gear({chainring: 52, cog: 11, wheel: w}).Ratio());
 // bike = new MountainBike({size: 'S', frontShock: 'Manitou', rearShock: 'Fox', style: 'mountain'});
 // console.log(bike.Spares());
 
-// After refactoring code to utilize abstract class and template pattern
-let bike = new MountainBike({frontShock: 'Manitou', rearShock: 'Fox'});
-console.log(bike.Spares());
+// // After refactoring code to utilize abstract class and template pattern
+// let bike = new MountainBike({frontShock: 'Manitou', rearShock: 'Fox'});
+// console.log(bike.Spares());
 
-let xbike = new RoadBike({tapeColor: 'red'});
-console.log(xbike.Spares());
+// let xbike = new RoadBike({tapeColor: 'red'});
+// console.log(xbike.Spares());
 
-let ybike = new RecumbentBike({flag: 'tall and orange'});
-console.log(ybike.Spares());
-// bike.Schedule = new Schedule();
-console.log(bike.Schedulable(new Date(), new Date()));
+// let ybike = new RecumbentBike({flag: 'tall and orange'});
+// console.log(ybike.Spares());
+// // bike.Schedule = new Schedule();
+// console.log(bike.Schedulable(new Date(), new Date()));
+
+let bike  = new Bicycle({size: 'L', parts: new RoadBikeParts({tapeColor: 'red'})});
+console.log(bike);
+console.log(bike.Size);

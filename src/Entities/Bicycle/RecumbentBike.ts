@@ -1,39 +1,39 @@
-import Bicycle from "./Bicycle";
-import BicycleParams from "../../ts/interfaces/BicycleParams.interface";
+// import Bicycle from "./Bicycle";
+// import BicycleParams from "../../ts/interfaces/BicycleParams.interface";
 
-interface params extends BicycleParams {
-  flag: string;
-}
+// interface params extends BicycleParams {
+//   flag: string;
+// }
 
-class RecumbentBike extends Bicycle {
-  private _flag: string;
+// class RecumbentBike extends Bicycle {
+//   private _flag: string;
 
-  public get Flag(): string {
-    return this._flag;
-  }
+//   public get Flag(): string {
+//     return this._flag;
+//   }
 
-  public set Flag(v: string) {
-    this._flag = v;
-  }
+//   public set Flag(v: string) {
+//     this._flag = v;
+//   }
 
-  constructor({size, chain, tireSize, flag}: params) {
-    super({size, chain, tireSize});
-    this._flag = flag;
-  }
+//   constructor({size, chain, tireSize, flag}: params) {
+//     super({size, chain, tireSize});
+//     this._flag = flag;
+//   }
 
-  protected override DefaultChain(): string {
-    return '10-speed';
-  }
+//   protected override DefaultChain(): string {
+//     return '10-speed';
+//   }
 
-  protected override DefaultTireSize(): string {
-    return '28';
-  }
+//   protected override DefaultTireSize(): string {
+//     return '28';
+//   }
 
-  protected override LocalSpares(): {} {
-    return {
-      flag: this.Flag
-    }
-  }
-}
+//   protected override LocalSpares(): {} {
+//     return {
+//       flag: this.Flag
+//     }
+//   }
+// }
 
-export default RecumbentBike;
+// export default RecumbentBike;

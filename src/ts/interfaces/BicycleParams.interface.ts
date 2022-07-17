@@ -1,10 +1,10 @@
+import Parts from "../../Entities/Parts/Parts";
 import Schedule from "../../Entities/Schedule";
 
 interface BicycleParams {
   size?: string;
-  chain?: string;
-  tireSize?: string;
-  schedule?: Schedule 
+  schedule?: Schedule;
+  parts: Parts;
 }
 
 export default BicycleParams

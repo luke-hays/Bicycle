@@ -1,12 +1,12 @@
 import BicycleParams from "../../ts/interfaces/BicycleParams.interface";
 import Schedulable from "../../ts/mixins/Schedulable";
+import Parts from "../Parts/Parts";
 
 interface Bicycle extends Schedulable {}
 
-abstract class Bicycle implements Bicycle {
+class Bicycle implements Bicycle {
   private _size: string;
-  private _chain: string;
-  private _tireSize: string;
+  private _parts: Parts;
 
   public get Size() : string {
     return this._size
@@ -16,52 +16,23 @@ abstract class Bicycle implements Bicycle {
     this._size = v;
   }
 
-  public get Chain() : string {
-    return this._chain
+  public get Parts() : Parts {
+    return this._parts
   }
 
-  public set Chain(v : string) {
-    this._chain = v;
-  }
-
-  public get TireSize() : string {
-    return this._tireSize
-  }
-
-  public set TireSize(v : string) {
-    this._tireSize = v;
+  public set Parts(v : Parts) {
+    this._parts = v;
   }
 
   //Injecting Schedule dependency and providing default
-  constructor({size = '', chain, tireSize}: BicycleParams) {
+  constructor({size = '', parts}: BicycleParams) {
     this._size = size;
-    this._chain = chain ?? this.DefaultChain();
-    this._tireSize = tireSize ?? this.DefaultTireSize();
+    this._parts = parts;
   }
 
   // Return the number of lead days before a bicycle can be scheduled
   protected LeadDays(): number {
     return 1;
-  }
-
-  protected DefaultChain(): string {
-    return "11-speed";
-  }
-
-  protected DefaultTireSize(): string {
-    return "";
-  }
-
-  protected LocalSpares(): {} {
-    return {}
-  }
-
-  public Spares() {
-    return {
-      chain: this.Chain,
-      tireSize: this.TireSize,
-      ...this.LocalSpares()
-    }
   }
 }
 
