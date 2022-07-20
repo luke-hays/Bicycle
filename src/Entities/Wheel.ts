@@ -9,8 +9,7 @@ class Wheel {
     
     constructor({rim, tire}: WheelConstructorParams) {
         this._rim = rim;
-        this._tire = tire;
-        
+        this._tire = tire;   
     };
 
     get Rim() {

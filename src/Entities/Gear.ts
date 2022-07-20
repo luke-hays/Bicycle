@@ -1,15 +1,16 @@
+import Diameterize from "../ts/interfaces/Diameterize.interface";
 import Wheel from "./Wheel";
 
 interface GearConstructorParams {
     chainring: number,
     cog: number,
-    wheel: Wheel
+    wheel: Diameterize
 }
 
 class Gear {
     private _chainring: number;
     private _cog: number;
-    private _gearWheel: Wheel;
+    private _gearWheel: Diameterize;
 
     constructor({chainring, cog, wheel}: GearConstructorParams) {
         this._chainring = chainring;
